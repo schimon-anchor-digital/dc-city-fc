@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>DC City FC — Homepage preview</title>
+<style>
+body{margin:0}
+/* DC City FC — Homepage.css
+   Pairs with Homepage.html + Homepage.js.
+   Everything is scoped under .dcfc-page so it can drop into a WordPress theme
+   without fighting the theme's own styles. Black & white palette (Juventus-inspired). */
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+/* ---------- Tokens ---------- */
+.dcfc-page {
+  --black:#0a0a0a;
+  --ink:#141414;
+  --grey-700:#3a3a3a;
+  --grey-500:#6b6b6b;
+  --grey-200:#e4e4e4;
+  --grey-100:#f3f3f3;
+  --white:#ffffff;
+
+  --bg:var(--white);
+  --text:var(--black);
+  --muted:var(--grey-500);
+  --border:var(--grey-200);
+
+  --maxw:1100px;
+  --radius:6px;
+  --font-display:'Oswald','Arial Narrow',Impact,sans-serif;
+  --font-body:'Inter',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
+
+  font-family:var(--font-body);
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.dcfc-page *, .dcfc-page *::before, .dcfc-page *::after { box-sizing:border-box; }
+.dcfc-page h1, .dcfc-page h2, .dcfc-page p, .dcfc-page ul, .dcfc-page figure { margin:0; padding:0; }
+.dcfc-page ul { list-style:none; }
+.dcfc-page a { color:inherit; }
+.dcfc-page :focus-visible { outline:3px solid #8a8a8a; outline-offset:2px; }
+
+.dcfc-visually-hidden {
+  position:absolute !important; width:1px; height:1px; overflow:hidden;
+  clip:rect(0 0 0 0); white-space:nowrap;
+}
+
+/* ---------- Layout ---------- */
+.dcfc-container { width:100%; max-width:var(--maxw); margin:0 auto; padding:0 20px; }
+.dcfc-section { padding:64px 0; }
+.dcfc-section--alt { background:var(--grey-100); }
+.dcfc-section--dark { background:var(--black); color:var(--white); }
+.dcfc-two { display:grid; grid-template-columns:1fr; gap:48px; }
+@media (min-width:860px) { .dcfc-two { grid-template-columns:1fr 1fr; } }
+
+.dcfc-title {
+  font-family:var(--font-display);
+  font-weight:700; font-size:clamp(28px,4vw,40px);
+  text-transform:uppercase; letter-spacing:.02em; line-height:1.1;
+  margin-bottom:28px;
+}
+.dcfc-title span { display:inline-block; background:var(--black); color:var(--white); padding:0 10px; margin-right:6px; }
+.dcfc-section--dark .dcfc-title span { background:var(--white); color:var(--black); }
+
+.dcfc-note { margin-top:18px; color:var(--muted); font-size:15px; }
+.dcfc-note a { text-decoration:underline; }
+
+/* ---------- Buttons / badge ---------- */
+.dcfc-btn {
+  display:inline-block; font-family:var(--font-display); font-weight:600;
+  text-transform:uppercase; letter-spacing:.08em; font-size:15px;
+  padding:13px 26px; border:2px solid var(--white); border-radius:var(--radius);
+  text-decoration:none; transition:background .15s, color .15s;
+}
+.dcfc-btn--primary { background:var(--white); color:var(--black) !important; }
+.dcfc-btn--primary:hover { background:var(--black); color:var(--white) !important; }
+.dcfc-btn--ghost { background:transparent; color:var(--white) !important; }
+.dcfc-btn--ghost:hover { background:var(--white); color:var(--black) !important; }
+.dcfc-sponsor .dcfc-btn--primary { background:var(--black); color:var(--white) !important; border-color:var(--black); }
+.dcfc-sponsor .dcfc-btn--primary:hover { background:var(--white); color:var(--black) !important; }
+
+.dcfc-badge {
+  display:inline-block; font-family:var(--font-display); text-transform:uppercase;
+  letter-spacing:.12em; font-size:13px; padding:5px 12px;
+  border:1px solid currentColor; margin-bottom:18px;
+}
+
+/* ---------- Hero ---------- */
+.dcfc-hero { background:var(--black); color:var(--white); padding:80px 0 0; position:relative; overflow:hidden; }
+.dcfc-hero__grid { display:grid; grid-template-columns:1fr; gap:40px; align-items:center; padding-bottom:72px; }
+@media (min-width:860px) { .dcfc-hero__grid { grid-template-columns:1.3fr .7fr; } }
+.dcfc-hero h1 {
+  font-family:var(--font-display); font-weight:700; text-transform:uppercase;
+  font-size:clamp(56px,11vw,128px); line-height:.95; letter-spacing:.01em;
+}
+.dcfc-hero h1 span { -webkit-text-stroke:2px var(--white); color:transparent; }
+.dcfc-hero p { max-width:520px; margin:22px 0 30px; font-size:18px; color:#d0d0d0; }
+.dcfc-cta-row { display:flex; flex-wrap:wrap; gap:14px; }
+
+.dcfc-hero__crest { display:flex; justify-content:center; }
+.dcfc-crest {
+  width:min(260px,70vw); aspect-ratio:4/5; background:var(--white); color:var(--black);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  clip-path:polygon(0 0,100% 0,100% 62%,50% 100%,0 62%);
+  font-family:var(--font-display); text-transform:uppercase; text-align:center;
+  padding-bottom:12%;
+}
+.dcfc-crest span { font-size:96px; font-weight:700; line-height:1; }
+.dcfc-crest small { font-size:20px; letter-spacing:.3em; margin-left:.3em; }
+
+/* Juve-style vertical stripes */
+.dcfc-stripes {
+  height:34px;
+  background:repeating-linear-gradient(90deg,var(--white) 0 44px,var(--black) 44px 88px);
+}
+
+/* ---------- Next match ---------- */
+.dcfc-next { padding:0; background:var(--grey-100); }
+.dcfc-next__card {
+  background:var(--white); border:2px solid var(--black); border-radius:var(--radius);
+  padding:28px 24px; text-align:center;
+  box-shadow:8px 8px 0 var(--black);
+}
+.dcfc-next { padding-bottom:0; }
+.dcfc-next .dcfc-container { padding-bottom:36px; padding-top:36px; }
+.dcfc-next__label { font-family:var(--font-display); text-transform:uppercase; letter-spacing:.14em; font-size:14px; color:var(--muted); }
+.dcfc-next__teams { font-family:var(--font-display); text-transform:uppercase; font-size:clamp(24px,4.5vw,42px); font-weight:600; margin:6px 0; }
+.dcfc-next__teams em { font-style:normal; color:var(--muted); margin:0 12px; font-size:.6em; }
+.dcfc-next__meta { color:var(--grey-700); }
+.dcfc-countdown { display:flex; justify-content:center; gap:12px; margin-top:20px; flex-wrap:wrap; }
+.dcfc-countdown div { background:var(--black); color:var(--white); min-width:76px; padding:10px 8px; border-radius:var(--radius); }
+.dcfc-countdown b { display:block; font-family:var(--font-display); font-size:32px; line-height:1.1; }
+.dcfc-countdown span { font-size:12px; text-transform:uppercase; letter-spacing:.1em; color:#bdbdbd; }
+
+/* ---------- Stats ---------- */
+.dcfc-stats { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+@media (min-width:640px) { .dcfc-stats { grid-template-columns:repeat(3,1fr); } }
+@media (min-width:960px) { .dcfc-stats { grid-template-columns:repeat(6,1fr); } }
+.dcfc-stat { border:2px solid var(--black); border-radius:var(--radius); padding:18px 12px; text-align:center; }
+.dcfc-stat b { display:block; font-family:var(--font-display); font-size:48px; line-height:1; }
+.dcfc-stat span { font-size:13px; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); }
+
+/* ---------- Matches ---------- */
+.dcfc-matches { display:grid; gap:10px; }
+.dcfc-match {
+  display:grid; grid-template-columns:auto 1fr; gap:4px 14px; align-items:center;
+  background:var(--white); border:1px solid var(--border); border-left:5px solid var(--black);
+  border-radius:var(--radius); padding:12px 16px;
+}
+.dcfc-match__md { font-family:var(--font-display); font-weight:600; letter-spacing:.08em; color:var(--muted); grid-row:1 / span 2; }
+.dcfc-match__teams { font-weight:500; }
+.dcfc-match__teams em { font-style:normal; color:var(--muted); font-size:.85em; margin:0 4px; }
+.dcfc-match__meta { grid-column:2; font-size:14px; color:var(--muted); }
+.dcfc-match__score { grid-column:2; font-family:var(--font-display); font-size:22px; display:flex; align-items:center; gap:10px; }
+.dcfc-res { display:inline-grid; place-items:center; width:26px; height:26px; background:var(--black); color:var(--white); font-size:14px; border-radius:50%; }
+.dcfc-match--d .dcfc-res { background:var(--white); color:var(--black); border:2px solid var(--black); }
+
+/* ---------- Table ---------- */
+.dcfc-table-wrap { overflow-x:auto; }
+.dcfc-table { width:100%; border-collapse:collapse; font-variant-numeric:tabular-nums; }
+.dcfc-table th { background:var(--black); color:var(--white); font-family:var(--font-display); text-transform:uppercase; letter-spacing:.08em; font-weight:500; }
+.dcfc-table th, .dcfc-table td { padding:12px 14px; text-align:center; border-bottom:1px solid var(--border); }
+.dcfc-table th:nth-child(2), .dcfc-table td:nth-child(2) { text-align:left; }
+.dcfc-table .is-us td { font-weight:700; background:var(--grey-100); }
+
+/* ---------- Squad ---------- */
+.dcfc-manager { margin:-10px 0 22px; color:#cfcfcf; }
+.dcfc-manager strong { color:var(--white); }
+.dcfc-search {
+  width:100%; max-width:380px; padding:12px 14px; margin-bottom:24px; font:inherit;
+  background:transparent; color:var(--white); border:2px solid var(--white); border-radius:var(--radius);
+}
+.dcfc-search::placeholder { color:#9a9a9a; }
+.dcfc-players { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:12px; }
+.dcfc-players li { display:flex; align-items:center; gap:14px; border:1px solid #333; border-radius:var(--radius); padding:12px 14px; transition:background .15s, border-color .15s; }
+.dcfc-players li:hover { border-color:var(--white); background:#161616; }
+.dcfc-av {
+  flex:none; width:46px; height:46px; display:grid; place-items:center;
+  background:var(--white); color:var(--black); border-radius:50%;
+  font-family:var(--font-display); font-weight:700; font-size:18px;
+}
+.dcfc-players small { display:block; color:#a8a8a8; font-size:13px; line-height:1.2; }
+.dcfc-players b { font-family:var(--font-display); text-transform:uppercase; letter-spacing:.04em; font-size:18px; font-weight:600; }
+.dcfc-empty { color:#bdbdbd; margin-top:16px; }
+
+/* ---------- Sponsor ---------- */
+.dcfc-sponsor { background:var(--white); }
+.dcfc-sponsor__card {
+  border:3px solid var(--black); border-radius:var(--radius); padding:44px 28px; text-align:center;
+  background:repeating-linear-gradient(90deg,var(--white) 0 40px,var(--grey-100) 40px 80px);
+}
+.dcfc-sponsor__card > * { position:relative; }
+.dcfc-badge--dark { background:var(--black); color:var(--white); }
+.dcfc-sponsor h2 {
+  font-family:var(--font-display); text-transform:uppercase; font-size:clamp(36px,7vw,72px);
+  line-height:1; margin-bottom:16px;
+}
+.dcfc-sponsor p { max-width:620px; margin:0 auto 26px; background:var(--white); padding:6px 10px; }
+
+@media (prefers-reduced-motion:reduce) { .dcfc-page * { transition:none !important; } }
+
+</style>
+</head>
+<body>
+<!-- DC City FC — Homepage.html -->
+<!-- Body content only (no <head>, <style>, or <script>), ready to paste into a WordPress page / Custom HTML block.
+     Pair with Homepage.css and Homepage.js. All markup is namespaced under .dcfc-page.
+     No header/footer block is included on purpose — the WordPress theme supplies those. -->
+<!--
+  CONTENT TO VERIFY BEFORE LAUNCH:
+  - Roster, results, fixtures and standings were copied from the Turneo team page on 2026-10-16.
+    They are static markup here; update after each matchday (or replace with a Turneo embed).
+  - Match dates for past matchdays were not published on Turneo, so results show matchday numbers only.
+  - Matchday 4 does not appear in Turneo's results (likely a bye) — confirm.
+  - Dacha Beergarden: link goes to dachabeergarden.com; confirm which location (Shaw / Navy Yard) is the sponsor's
+    and add any sponsor-approved logo/copy. Sponsor logo slot is marked below.
+  - Photo slots are marked with comments; add team photos via WordPress when available.
+  - Crest: replace the text monogram (.dcfc-crest) with the real club crest when available.
+-->
+
+<div class="dcfc-page" id="top" lang="en">
+  <main>
+
+    <!-- ============ HERO ============ -->
+    <section class="dcfc-section dcfc-hero">
+      <div class="dcfc-container dcfc-hero__grid">
+        <div class="dcfc-hero__copy">
+          <span class="dcfc-badge">DCPL 2 · Fall 2026 · Washington, DC</span>
+          <h1>DC City <span>FC</span></h1>
+          <p>Black, white and all in for the District. Meet the squad, follow the fixtures, and come out to a match on Sunday.</p>
+          <div class="dcfc-cta-row">
+            <a class="dcfc-btn dcfc-btn--primary" href="#fixtures">Next match</a>
+            <a class="dcfc-btn dcfc-btn--ghost" href="#squad">Meet the squad</a>
+          </div>
+        </div>
+        <div class="dcfc-hero__crest" aria-hidden="true">
+          <!-- CREST: swap this monogram for the club crest image. -->
+          <div class="dcfc-crest"><span>DC</span><small>CITY FC</small></div>
+        </div>
+      </div>
+      <div class="dcfc-stripes" aria-hidden="true"></div>
+    </section>
+
+    <!-- ============ NEXT MATCH ============ -->
+    <section class="dcfc-section dcfc-next" id="next">
+      <div class="dcfc-container">
+        <div class="dcfc-next__card" data-kickoff="2026-10-18T17:00:00-04:00">
+          <div class="dcfc-next__label">Next match · Matchday 7</div>
+          <div class="dcfc-next__teams">
+            <span>DMV Starz</span><em>vs</em><strong>DC City FC</strong>
+          </div>
+          <div class="dcfc-next__meta">Sun, Oct 18 · 5:00 PM · Roosevelt High School</div>
+          <div class="dcfc-countdown" aria-live="off">
+            <div><b data-cd="d">--</b><span>days</span></div>
+            <div><b data-cd="h">--</b><span>hrs</span></div>
+            <div><b data-cd="m">--</b><span>min</span></div>
+            <div><b data-cd="s">--</b><span>sec</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SEASON SNAPSHOT ============ -->
+    <section class="dcfc-section" id="season">
+      <div class="dcfc-container">
+        <h2 class="dcfc-title"><span>Season</span> snapshot</h2>
+        <div class="dcfc-stats">
+          <div class="dcfc-stat"><b>4</b><span>Wins</span></div>
+          <div class="dcfc-stat"><b>1</b><span>Draw</span></div>
+          <div class="dcfc-stat"><b>0</b><span>Losses</span></div>
+          <div class="dcfc-stat"><b>14</b><span>Goals for</span></div>
+          <div class="dcfc-stat"><b>4</b><span>Goals against</span></div>
+          <div class="dcfc-stat"><b>13</b><span>Points</span></div>
+        </div>
+        <p class="dcfc-note">Unbeaten after 5 of 10 matches. Top scorer: Ahmed Samura (4).</p>
+      </div>
+    </section>
+
+    <!-- ============ RESULTS + FIXTURES ============ -->
+    <section class="dcfc-section dcfc-section--alt" id="fixtures">
+      <div class="dcfc-container dcfc-two">
+
+        <div>
+          <h2 class="dcfc-title"><span>Upcoming</span> fixtures</h2>
+          <ul class="dcfc-matches">
+            <li class="dcfc-match">
+              <div class="dcfc-match__md">MD 7</div>
+              <div class="dcfc-match__teams">DMV Starz <em>vs</em> <strong>DC City FC</strong></div>
+              <div class="dcfc-match__meta">Sun, Oct 18 · 5:00 PM<br>Roosevelt High School</div>
+            </li>
+            <li class="dcfc-match">
+              <div class="dcfc-match__md">MD 8</div>
+              <div class="dcfc-match__teams">51st State FC <em>vs</em> <strong>DC City FC</strong></div>
+              <div class="dcfc-match__meta">Sun, Oct 25 · 2:00 PM<br>Gallaudet University</div>
+            </li>
+            <li class="dcfc-match">
+              <div class="dcfc-match__md">MD 9</div>
+              <div class="dcfc-match__teams"><strong>DC City FC</strong> <em>vs</em> AFC Blitz</div>
+              <div class="dcfc-match__meta">Sun, Nov 1 · 12:00 PM<br>CUA – Carlini</div>
+            </li>
+            <li class="dcfc-match">
+              <div class="dcfc-match__md">MD 10</div>
+              <div class="dcfc-match__teams"><strong>DC City FC</strong> <em>vs</em> WGIT FC</div>
+              <div class="dcfc-match__meta">Sun, Nov 8 · 7:00 PM<br>McKinley Tech</div>
+            </li>
+            <li class="dcfc-match">
+              <div class="dcfc-match__md">MD 11</div>
+              <div class="dcfc-match__teams"><strong>DC City FC</strong> <em>vs</em> FBC</div>
+              <div class="dcfc-match__meta">Sun, Nov 15 · 2:00 PM<br>Gallaudet University</div>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="dcfc-title"><span>Latest</span> results</h2>
+          <ul class="dcfc-matches">
+            <li class="dcfc-match dcfc-match--w">
+              <div class="dcfc-match__md">MD 6</div>
+              <div class="dcfc-match__teams">Ragtag United <em>vs</em> <strong>DC City FC</strong></div>
+              <div class="dcfc-match__score"><span class="dcfc-res">W</span>2 – 3</div>
+            </li>
+            <li class="dcfc-match dcfc-match--w">
+              <div class="dcfc-match__md">MD 5</div>
+              <div class="dcfc-match__teams">Unathletic Athletic <em>vs</em> <strong>DC City FC</strong></div>
+              <div class="dcfc-match__score"><span class="dcfc-res">W</span>1 – 4</div>
+            </li>
+            <li class="dcfc-match dcfc-match--w">
+              <div class="dcfc-match__md">MD 3</div>
+              <div class="dcfc-match__teams"><strong>DC City FC</strong> <em>vs</em> The Big Slow</div>
+              <div class="dcfc-match__score"><span class="dcfc-res">W</span>3 – 1</div>
+            </li>
+            <li class="dcfc-match dcfc-match--d">
+              <div class="dcfc-match__md">MD 2</div>
+              <div class="dcfc-match__teams"><strong>DC City FC</strong> <em>vs</em> District Gaels FC</div>
+              <div class="dcfc-match__score"><span class="dcfc-res">D</span>0 – 0</div>
+            </li>
+            <li class="dcfc-match dcfc-match--w">
+              <div class="dcfc-match__md">MD 1</div>
+              <div class="dcfc-match__teams">Bashgah Soroosh <em>vs</em> <strong>DC City FC</strong></div>
+              <div class="dcfc-match__score"><span class="dcfc-res">W</span>0 – 4</div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ STANDINGS ============ -->
+    <section class="dcfc-section" id="league">
+      <div class="dcfc-container">
+        <h2 class="dcfc-title"><span>DCPL 2</span> standings</h2>
+        <div class="dcfc-table-wrap">
+          <table class="dcfc-table">
+            <caption class="dcfc-visually-hidden">DCPL 2 top of the table</caption>
+            <thead><tr><th>#</th><th>Club</th><th>P</th><th>GF:GA</th><th>GD</th><th>Pts</th></tr></thead>
+            <tbody>
+              <tr class="is-us"><td>1</td><td>DC City FC</td><td>5</td><td>14:4</td><td>+10</td><td>13</td></tr>
+              <tr><td>2</td><td>WGIT FC</td><td>5</td><td>20:11</td><td>+9</td><td>13</td></tr>
+              <tr><td>3</td><td>Ragtag United</td><td>5</td><td>14:7</td><td>+7</td><td>9</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="dcfc-note">Top three shown. Full table on
+          <a href="https://web.turneoapp.com/team/82e677fa-9929-43d1-abd7-fabb3e2167ad/stats" target="_blank" rel="noopener">Turneo</a>.
+          We play in the <a href="https://dcpremierleague.com/fall-2026/dcpl-2/" target="_blank" rel="noopener">DC Premier League (DCPL) – Division 2</a>, Fall 2026 season.</p>
+      </div>
+    </section>
+
+    <!-- ============ SQUAD ============ -->
+    <section class="dcfc-section dcfc-section--dark" id="squad">
+      <div class="dcfc-container">
+        <h2 class="dcfc-title"><span>The</span> squad</h2>
+        <p class="dcfc-manager">Manager: <strong>Alexios Rodriguez</strong></p>
+
+        <label class="dcfc-visually-hidden" for="dcfc-search">Search players</label>
+        <input class="dcfc-search" id="dcfc-search" type="search" placeholder="Search players…" autocomplete="off">
+
+        <ul class="dcfc-players" id="dcfc-players">
+          <li data-p><span class="dcfc-av">FA</span><div><small>Faris</small><b>Abdulghani</b></div></li>
+          <li data-p><span class="dcfc-av">BA</span><div><small>Birchard</small><b>Allen</b></div></li>
+          <li data-p><span class="dcfc-av">HC</span><div><small>Hector</small><b>Canton</b></div></li>
+          <li data-p><span class="dcfc-av">JC</span><div><small>Jamal</small><b>Coleridge</b></div></li>
+          <li data-p><span class="dcfc-av">ED</span><div><small>Edson</small><b>Demata</b></div></li>
+          <li data-p><span class="dcfc-av">SD</span><div><small>Schimon</small><b>Dieseler</b></div></li>
+          <li data-p><span class="dcfc-av">BF</span><div><small>Bladimir</small><b>Fuentes</b></div></li>
+          <li data-p><span class="dcfc-av">JG</span><div><small>John</small><b>Gansallo</b></div></li>
+          <li data-p><span class="dcfc-av">AH</span><div><small>Alan</small><b>Hernandez</b></div></li>
+          <li data-p><span class="dcfc-av">TH</span><div><small>Theodore</small><b>Hughes</b></div></li>
+          <li data-p><span class="dcfc-av">NJ</span><div><small>Nathan</small><b>Johnson</b></div></li>
+          <li data-p><span class="dcfc-av">WK</span><div><small>Wuchukwu</small><b>Kelechi</b></div></li>
+          <li data-p><span class="dcfc-av">YT</span><div><small>Yoalmo</small><b>Khan Torres</b></div></li>
+          <li data-p><span class="dcfc-av">JK</span><div><small>Jeff</small><b>Kyei</b></div></li>
+          <li data-p><span class="dcfc-av">AK</span><div><small>Aaron</small><b>Kyei-Asare</b></div></li>
+          <li data-p><span class="dcfc-av">SL</span><div><small>Sean</small><b>Limon</b></div></li>
+          <li data-p><span class="dcfc-av">WL</span><div><small>William</small><b>Lowthert</b></div></li>
+          <li data-p><span class="dcfc-av">TM</span><div><small>Tyler</small><b>Madairy</b></div></li>
+          <li data-p><span class="dcfc-av">KM</span><div><small>Kenny</small><b>Mesidor</b></div></li>
+          <li data-p><span class="dcfc-av">JM</span><div><small>Joshua</small><b>Morgan</b></div></li>
+          <li data-p><span class="dcfc-av">GM</span><div><small>Gregorio</small><b>Mount</b></div></li>
+          <li data-p><span class="dcfc-av">DO</span><div><small>David</small><b>Ogbonna</b></div></li>
+          <li data-p><span class="dcfc-av">WQ</span><div><small>William</small><b>Quansah</b></div></li>
+          <li data-p><span class="dcfc-av">AR</span><div><small>Alexios</small><b>Rodriguez</b></div></li>
+          <li data-p><span class="dcfc-av">MR</span><div><small>Manuel</small><b>Ruiz</b></div></li>
+          <li data-p><span class="dcfc-av">AS</span><div><small>Ahmed</small><b>Samura</b></div></li>
+          <li data-p><span class="dcfc-av">NZ</span><div><small>Noah</small><b>Van Zandt</b></div></li>
+          <li data-p><span class="dcfc-av">JW</span><div><small>Jonathan</small><b>Waldron</b></div></li>
+          <li data-p><span class="dcfc-av">JW</span><div><small>Justin</small><b>Waldron</b></div></li>
+        </ul>
+        <p class="dcfc-empty" id="dcfc-empty" hidden>No players match that search.</p>
+        <!-- PHOTO: team photo slot — add a <figure> here when available. -->
+      </div>
+    </section>
+
+    <!-- ============ SPONSOR ============ -->
+    <section class="dcfc-section dcfc-sponsor" id="sponsor">
+      <div class="dcfc-container">
+        <div class="dcfc-sponsor__card">
+          <span class="dcfc-badge dcfc-badge--dark">Proudly sponsored by</span>
+          <!-- LOGO: drop the Dacha logo <img> here when approved by the sponsor. -->
+          <h2>Dacha Beergarden</h2>
+          <p>Huge thanks to Dacha Beergarden for backing DC City FC this season. German, Belgian and American craft beer, seasonal Bavarian-inspired food and a dog-friendly patio in Shaw and Navy Yard — the best place to toast a win.</p>
+          <a class="dcfc-btn dcfc-btn--primary" href="https://www.dachabeergarden.com" target="_blank" rel="noopener">Visit Dacha Beergarden</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+/* DC City FC — Homepage.js
+   Pairs with Homepage.html + Homepage.css.
+   Progressive enhancement only — the page is fully usable with this file absent.
+
+   Enqueue in WordPress with defer, e.g.:
+     wp_enqueue_script('dcfc-homepage', get_stylesheet_directory_uri().'/Homepage.js', array(), '1.0.0', true);
+*/
+(function () {
+  'use strict';
+
+  var root = document.querySelector('.dcfc-page');
+  if (!root) return;
+
+  /* ---------- Next-match countdown ----------
+     Kickoff comes from data-kickoff (ISO 8601 with offset) on .dcfc-next__card.
+     Update that attribute + the card text after each matchday. */
+  var card = root.querySelector('.dcfc-next__card');
+  if (card) {
+    var kickoff = new Date(card.getAttribute('data-kickoff')).getTime();
+    var cells = {};
+    ['d', 'h', 'm', 's'].forEach(function (k) { cells[k] = card.querySelector('[data-cd="' + k + '"]'); });
+    var box = card.querySelector('.dcfc-countdown');
+
+    var tick = function () {
+      var diff = kickoff - Date.now();
+      if (isNaN(kickoff)) { box.hidden = true; return true; }
+      if (diff <= 0) { box.hidden = true; return true; }
+      var s = Math.floor(diff / 1000);
+      cells.d.textContent = Math.floor(s / 86400);
+      cells.h.textContent = pad(Math.floor(s % 86400 / 3600));
+      cells.m.textContent = pad(Math.floor(s % 3600 / 60));
+      cells.s.textContent = pad(s % 60);
+      return false;
+    };
+    var pad = function (n) { return n < 10 ? '0' + n : String(n); };
+
+    if (!tick()) {
+      var timer = setInterval(function () { if (tick()) clearInterval(timer); }, 1000);
+    }
+  }
+
+  /* ---------- Squad search ---------- */
+  var input = root.querySelector('#dcfc-search');
+  var empty = root.querySelector('#dcfc-empty');
+  var players = root.querySelectorAll('#dcfc-players [data-p]');
+  if (input && players.length) {
+    input.addEventListener('input', function () {
+      var q = input.value.trim().toLowerCase();
+      var shown = 0;
+      players.forEach(function (li) {
+        var match = !q || li.textContent.toLowerCase().indexOf(q) !== -1;
+        li.hidden = !match;
+        if (match) shown++;
+      });
+      if (empty) empty.hidden = shown > 0;
+    });
+  }
+
+  /* ---------- Smooth scroll for in-page anchors ---------- */
+  root.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+    });
+  });
+})();
+
+</script>
+</body>
+</html>
