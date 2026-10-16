@@ -1,0 +1,197 @@
+/* DC City FC — Homepage.css
+   Pairs with Homepage.html + Homepage.js.
+   Everything is scoped under .dcfc-page so it can drop into a WordPress theme
+   without fighting the theme's own styles. Black & white palette (Juventus-inspired). */
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+/* ---------- Tokens ---------- */
+.dcfc-page {
+  --black:#0a0a0a;
+  --ink:#141414;
+  --grey-700:#3a3a3a;
+  --grey-500:#6b6b6b;
+  --grey-200:#e4e4e4;
+  --grey-100:#f3f3f3;
+  --white:#ffffff;
+
+  --bg:var(--white);
+  --text:var(--black);
+  --muted:var(--grey-500);
+  --border:var(--grey-200);
+
+  --maxw:1100px;
+  --radius:6px;
+  --font-display:'Oswald','Arial Narrow',Impact,sans-serif;
+  --font-body:'Inter',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
+
+  font-family:var(--font-body);
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.dcfc-page *, .dcfc-page *::before, .dcfc-page *::after { box-sizing:border-box; }
+.dcfc-page h1, .dcfc-page h2, .dcfc-page p, .dcfc-page ul, .dcfc-page figure { margin:0; padding:0; }
+.dcfc-page ul { list-style:none; }
+.dcfc-page a { color:inherit; }
+.dcfc-page :focus-visible { outline:3px solid #8a8a8a; outline-offset:2px; }
+
+.dcfc-visually-hidden {
+  position:absolute !important; width:1px; height:1px; overflow:hidden;
+  clip:rect(0 0 0 0); white-space:nowrap;
+}
+
+/* ---------- Layout ---------- */
+.dcfc-container { width:100%; max-width:var(--maxw); margin:0 auto; padding:0 20px; }
+.dcfc-section { padding:64px 0; }
+.dcfc-section--alt { background:var(--grey-100); }
+.dcfc-section--dark { background:var(--black); color:var(--white); }
+.dcfc-two { display:grid; grid-template-columns:1fr; gap:48px; }
+@media (min-width:860px) { .dcfc-two { grid-template-columns:1fr 1fr; } }
+
+.dcfc-title {
+  font-family:var(--font-display);
+  font-weight:700; font-size:clamp(28px,4vw,40px);
+  text-transform:uppercase; letter-spacing:.02em; line-height:1.1;
+  margin-bottom:28px;
+}
+.dcfc-title span { display:inline-block; background:var(--black); color:var(--white); padding:0 10px; margin-right:6px; }
+.dcfc-section--dark .dcfc-title span { background:var(--white); color:var(--black); }
+
+.dcfc-note { margin-top:18px; color:var(--muted); font-size:15px; }
+.dcfc-note a { text-decoration:underline; }
+
+/* ---------- Buttons / badge ---------- */
+.dcfc-btn {
+  display:inline-block; font-family:var(--font-display); font-weight:600;
+  text-transform:uppercase; letter-spacing:.08em; font-size:15px;
+  padding:13px 26px; border:2px solid var(--white); border-radius:var(--radius);
+  text-decoration:none; transition:background .15s, color .15s;
+}
+.dcfc-btn--primary { background:var(--white); color:var(--black) !important; }
+.dcfc-btn--primary:hover { background:var(--black); color:var(--white) !important; }
+.dcfc-btn--ghost { background:transparent; color:var(--white) !important; }
+.dcfc-btn--ghost:hover { background:var(--white); color:var(--black) !important; }
+.dcfc-sponsor .dcfc-btn--primary { background:var(--black); color:var(--white) !important; border-color:var(--black); }
+.dcfc-sponsor .dcfc-btn--primary:hover { background:var(--white); color:var(--black) !important; }
+
+.dcfc-badge {
+  display:inline-block; font-family:var(--font-display); text-transform:uppercase;
+  letter-spacing:.12em; font-size:13px; padding:5px 12px;
+  border:1px solid currentColor; margin-bottom:18px;
+}
+
+/* ---------- Hero ---------- */
+.dcfc-hero { background:var(--black); color:var(--white); padding:80px 0 0; position:relative; overflow:hidden; }
+.dcfc-hero__grid { display:grid; grid-template-columns:1fr; gap:40px; align-items:center; padding-bottom:72px; }
+@media (min-width:860px) { .dcfc-hero__grid { grid-template-columns:1.3fr .7fr; } }
+.dcfc-hero h1 {
+  font-family:var(--font-display); font-weight:700; text-transform:uppercase;
+  font-size:clamp(56px,11vw,128px); line-height:.95; letter-spacing:.01em;
+}
+.dcfc-hero h1 span { -webkit-text-stroke:2px var(--white); color:transparent; }
+.dcfc-hero p { max-width:520px; margin:22px 0 30px; font-size:18px; color:#d0d0d0; }
+.dcfc-cta-row { display:flex; flex-wrap:wrap; gap:14px; }
+
+.dcfc-hero__crest { display:flex; justify-content:center; }
+.dcfc-crest {
+  width:min(260px,70vw); aspect-ratio:4/5; background:var(--white); color:var(--black);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  clip-path:polygon(0 0,100% 0,100% 62%,50% 100%,0 62%);
+  font-family:var(--font-display); text-transform:uppercase; text-align:center;
+  padding-bottom:12%;
+}
+.dcfc-crest span { font-size:96px; font-weight:700; line-height:1; }
+.dcfc-crest small { font-size:20px; letter-spacing:.3em; margin-left:.3em; }
+
+/* Juve-style vertical stripes */
+.dcfc-stripes {
+  height:34px;
+  background:repeating-linear-gradient(90deg,var(--white) 0 44px,var(--black) 44px 88px);
+}
+
+/* ---------- Next match ---------- */
+.dcfc-next { padding:0; background:var(--grey-100); }
+.dcfc-next__card {
+  background:var(--white); border:2px solid var(--black); border-radius:var(--radius);
+  padding:28px 24px; text-align:center;
+  box-shadow:8px 8px 0 var(--black);
+}
+.dcfc-next { padding-bottom:0; }
+.dcfc-next .dcfc-container { padding-bottom:36px; padding-top:36px; }
+.dcfc-next__label { font-family:var(--font-display); text-transform:uppercase; letter-spacing:.14em; font-size:14px; color:var(--muted); }
+.dcfc-next__teams { font-family:var(--font-display); text-transform:uppercase; font-size:clamp(24px,4.5vw,42px); font-weight:600; margin:6px 0; }
+.dcfc-next__teams em { font-style:normal; color:var(--muted); margin:0 12px; font-size:.6em; }
+.dcfc-next__meta { color:var(--grey-700); }
+.dcfc-countdown { display:flex; justify-content:center; gap:12px; margin-top:20px; flex-wrap:wrap; }
+.dcfc-countdown div { background:var(--black); color:var(--white); min-width:76px; padding:10px 8px; border-radius:var(--radius); }
+.dcfc-countdown b { display:block; font-family:var(--font-display); font-size:32px; line-height:1.1; }
+.dcfc-countdown span { font-size:12px; text-transform:uppercase; letter-spacing:.1em; color:#bdbdbd; }
+
+/* ---------- Stats ---------- */
+.dcfc-stats { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+@media (min-width:640px) { .dcfc-stats { grid-template-columns:repeat(3,1fr); } }
+@media (min-width:960px) { .dcfc-stats { grid-template-columns:repeat(6,1fr); } }
+.dcfc-stat { border:2px solid var(--black); border-radius:var(--radius); padding:18px 12px; text-align:center; }
+.dcfc-stat b { display:block; font-family:var(--font-display); font-size:48px; line-height:1; }
+.dcfc-stat span { font-size:13px; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); }
+
+/* ---------- Matches ---------- */
+.dcfc-matches { display:grid; gap:10px; }
+.dcfc-match {
+  display:grid; grid-template-columns:auto 1fr; gap:4px 14px; align-items:center;
+  background:var(--white); border:1px solid var(--border); border-left:5px solid var(--black);
+  border-radius:var(--radius); padding:12px 16px;
+}
+.dcfc-match__md { font-family:var(--font-display); font-weight:600; letter-spacing:.08em; color:var(--muted); grid-row:1 / span 2; }
+.dcfc-match__teams { font-weight:500; }
+.dcfc-match__teams em { font-style:normal; color:var(--muted); font-size:.85em; margin:0 4px; }
+.dcfc-match__meta { grid-column:2; font-size:14px; color:var(--muted); }
+.dcfc-match__score { grid-column:2; font-family:var(--font-display); font-size:22px; display:flex; align-items:center; gap:10px; }
+.dcfc-res { display:inline-grid; place-items:center; width:26px; height:26px; background:var(--black); color:var(--white); font-size:14px; border-radius:50%; }
+.dcfc-match--d .dcfc-res { background:var(--white); color:var(--black); border:2px solid var(--black); }
+
+/* ---------- Table ---------- */
+.dcfc-table-wrap { overflow-x:auto; }
+.dcfc-table { width:100%; border-collapse:collapse; font-variant-numeric:tabular-nums; }
+.dcfc-table th { background:var(--black); color:var(--white); font-family:var(--font-display); text-transform:uppercase; letter-spacing:.08em; font-weight:500; }
+.dcfc-table th, .dcfc-table td { padding:12px 14px; text-align:center; border-bottom:1px solid var(--border); }
+.dcfc-table th:nth-child(2), .dcfc-table td:nth-child(2) { text-align:left; }
+.dcfc-table .is-us td { font-weight:700; background:var(--grey-100); }
+
+/* ---------- Squad ---------- */
+.dcfc-manager { margin:-10px 0 22px; color:#cfcfcf; }
+.dcfc-manager strong { color:var(--white); }
+.dcfc-search {
+  width:100%; max-width:380px; padding:12px 14px; margin-bottom:24px; font:inherit;
+  background:transparent; color:var(--white); border:2px solid var(--white); border-radius:var(--radius);
+}
+.dcfc-search::placeholder { color:#9a9a9a; }
+.dcfc-players { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:12px; }
+.dcfc-players li { display:flex; align-items:center; gap:14px; border:1px solid #333; border-radius:var(--radius); padding:12px 14px; transition:background .15s, border-color .15s; }
+.dcfc-players li:hover { border-color:var(--white); background:#161616; }
+.dcfc-av {
+  flex:none; width:46px; height:46px; display:grid; place-items:center;
+  background:var(--white); color:var(--black); border-radius:50%;
+  font-family:var(--font-display); font-weight:700; font-size:18px;
+}
+.dcfc-players small { display:block; color:#a8a8a8; font-size:13px; line-height:1.2; }
+.dcfc-players b { font-family:var(--font-display); text-transform:uppercase; letter-spacing:.04em; font-size:18px; font-weight:600; }
+.dcfc-empty { color:#bdbdbd; margin-top:16px; }
+
+/* ---------- Sponsor ---------- */
+.dcfc-sponsor { background:var(--white); }
+.dcfc-sponsor__card {
+  border:3px solid var(--black); border-radius:var(--radius); padding:44px 28px; text-align:center;
+  background:repeating-linear-gradient(90deg,var(--white) 0 40px,var(--grey-100) 40px 80px);
+}
+.dcfc-sponsor__card > * { position:relative; }
+.dcfc-badge--dark { background:var(--black); color:var(--white); }
+.dcfc-sponsor h2 {
+  font-family:var(--font-display); text-transform:uppercase; font-size:clamp(36px,7vw,72px);
+  line-height:1; margin-bottom:16px;
+}
+.dcfc-sponsor p { max-width:620px; margin:0 auto 26px; background:var(--white); padding:6px 10px; }
+
+@media (prefers-reduced-motion:reduce) { .dcfc-page * { transition:none !important; } }

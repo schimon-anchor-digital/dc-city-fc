@@ -1,0 +1,224 @@
+<!-- DC City FC — Homepage.html -->
+<!-- Body content only (no <head>, <style>, or <script>), ready to paste into a WordPress page / Custom HTML block.
+     Pair with Homepage.css and Homepage.js. All markup is namespaced under .dcfc-page.
+     No header/footer block is included on purpose — the WordPress theme supplies those. -->
+<!--
+  CONTENT TO VERIFY BEFORE LAUNCH:
+  - Roster, results, fixtures and standings were copied from the Turneo team page on 2026-10-16.
+    They are static markup here; update after each matchday (or replace with a Turneo embed).
+  - Match dates for past matchdays were not published on Turneo, so results show matchday numbers only.
+  - Matchday 4 does not appear in Turneo's results (likely a bye) — confirm.
+  - Dacha Beergarden: link goes to dachabeergarden.com; confirm which location (Shaw / Navy Yard) is the sponsor's
+    and add any sponsor-approved logo/copy. Sponsor logo slot is marked below.
+  - Photo slots are marked with comments; add team photos via WordPress when available.
+  - Crest: replace the text monogram (.dcfc-crest) with the real club crest when available.
+-->
+
+<div class="dcfc-page" id="top" lang="en">
+  <main>
+
+    <!-- ============ HERO ============ -->
+    <section class="dcfc-section dcfc-hero">
+      <div class="dcfc-container dcfc-hero__grid">
+        <div class="dcfc-hero__copy">
+          <span class="dcfc-badge">DCPL 2 · Fall 2026 · Washington, DC</span>
+          <h1>DC City <span>FC</span></h1>
+          <p>Black, white and all in for the District. Meet the squad, follow the fixtures, and come out to a match on Sunday.</p>
+          <div class="dcfc-cta-row">
+            <a class="dcfc-btn dcfc-btn--primary" href="#fixtures">Next match</a>
+            <a class="dcfc-btn dcfc-btn--ghost" href="#squad">Meet the squad</a>
+          </div>
+        </div>
+        <div class="dcfc-hero__crest" aria-hidden="true">
+          <!-- CREST: swap this monogram for the club crest image. -->
+          <div class="dcfc-crest"><span>DC</span><small>CITY FC</small></div>
+        </div>
+      </div>
+      <div class="dcfc-stripes" aria-hidden="true"></div>
+    </section>
+
+    <!-- ============ NEXT MATCH ============ -->
+    <section class="dcfc-section dcfc-next" id="next">
+      <div class="dcfc-container">
+        <div class="dcfc-next__card" data-kickoff="2026-10-18T17:00:00-04:00">
+          <div class="dcfc-next__label">Next match · Matchday 7</div>
+          <div class="dcfc-next__teams">
+            <span>DMV Starz</span><em>vs</em><strong>DC City FC</strong>
+          </div>
+          <div class="dcfc-next__meta">Sun, Oct 18 · 5:00 PM · Roosevelt High School</div>
+          <div class="dcfc-countdown" aria-live="off">
+            <div><b data-cd="d">--</b><span>days</span></div>
+            <div><b data-cd="h">--</b><span>hrs</span></div>
+            <div><b data-cd="m">--</b><span>min</span></div>
+            <div><b data-cd="s">--</b><span>sec</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SEASON SNAPSHOT ============ -->
+    <section class="dcfc-section" id="season">
+      <div class="dcfc-container">
+        <h2 class="dcfc-title"><span>Season</span> snapshot</h2>
+        <div class="dcfc-stats">
+          <div class="dcfc-stat"><b>4</b><span>Wins</span></div>
+          <div class="dcfc-stat"><b>1</b><span>Draw</span></div>
+          <div class="dcfc-stat"><b>0</b><span>Losses</span></div>
+          <div class="dcfc-stat"><b>14</b><span>Goals for</span></div>
+          <div class="dcfc-stat"><b>4</b><span>Goals against</span></div>
+          <div class="dcfc-stat"><b>13</b><span>Points</span></div>
+        </div>
+        <p class="dcfc-note">Unbeaten after 5 of 10 matches. Top scorer: Ahmed Samura (4).</p>
+      </div>
+    </section>
+
+    <!-- ============ RESULTS + FIXTURES ============ -->
+    <section class="dcfc-section dcfc-section--alt" id="fixtures">
+      <div class="dcfc-container dcfc-two">
+
+        <div>
+          <h2 class="dcfc-title"><span>Upcoming</span> fixtures</h2>
+          <ul class="dcfc-matches">
+            <li class="dcfc-match">
+              <div class="dcfc-match__md">MD 7</div>
+              <div class="dcfc-match__teams">DMV Starz <em>vs</em> <strong>DC City FC</strong></div>
+              <div class="dcfc-match__meta">Sun, Oct 18 · 5:00 PM<br>Roosevelt High School</div>
+            </li>
+            <li class="dcfc-match">
+              <div class="dcfc-match__md">MD 8</div>
+              <div class="dcfc-match__teams">51st State FC <em>vs</em> <strong>DC City FC</strong></div>
+              <div class="dcfc-match__meta">Sun, Oct 25 · 2:00 PM<br>Gallaudet University</div>
+            </li>
+            <li class="dcfc-match">
+              <div class="dcfc-match__md">MD 9</div>
+              <div class="dcfc-match__teams"><strong>DC City FC</strong> <em>vs</em> AFC Blitz</div>
+              <div class="dcfc-match__meta">Sun, Nov 1 · 12:00 PM<br>CUA – Carlini</div>
+            </li>
+            <li class="dcfc-match">
+              <div class="dcfc-match__md">MD 10</div>
+              <div class="dcfc-match__teams"><strong>DC City FC</strong> <em>vs</em> WGIT FC</div>
+              <div class="dcfc-match__meta">Sun, Nov 8 · 7:00 PM<br>McKinley Tech</div>
+            </li>
+            <li class="dcfc-match">
+              <div class="dcfc-match__md">MD 11</div>
+              <div class="dcfc-match__teams"><strong>DC City FC</strong> <em>vs</em> FBC</div>
+              <div class="dcfc-match__meta">Sun, Nov 15 · 2:00 PM<br>Gallaudet University</div>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="dcfc-title"><span>Latest</span> results</h2>
+          <ul class="dcfc-matches">
+            <li class="dcfc-match dcfc-match--w">
+              <div class="dcfc-match__md">MD 6</div>
+              <div class="dcfc-match__teams">Ragtag United <em>vs</em> <strong>DC City FC</strong></div>
+              <div class="dcfc-match__score"><span class="dcfc-res">W</span>2 – 3</div>
+            </li>
+            <li class="dcfc-match dcfc-match--w">
+              <div class="dcfc-match__md">MD 5</div>
+              <div class="dcfc-match__teams">Unathletic Athletic <em>vs</em> <strong>DC City FC</strong></div>
+              <div class="dcfc-match__score"><span class="dcfc-res">W</span>1 – 4</div>
+            </li>
+            <li class="dcfc-match dcfc-match--w">
+              <div class="dcfc-match__md">MD 3</div>
+              <div class="dcfc-match__teams"><strong>DC City FC</strong> <em>vs</em> The Big Slow</div>
+              <div class="dcfc-match__score"><span class="dcfc-res">W</span>3 – 1</div>
+            </li>
+            <li class="dcfc-match dcfc-match--d">
+              <div class="dcfc-match__md">MD 2</div>
+              <div class="dcfc-match__teams"><strong>DC City FC</strong> <em>vs</em> District Gaels FC</div>
+              <div class="dcfc-match__score"><span class="dcfc-res">D</span>0 – 0</div>
+            </li>
+            <li class="dcfc-match dcfc-match--w">
+              <div class="dcfc-match__md">MD 1</div>
+              <div class="dcfc-match__teams">Bashgah Soroosh <em>vs</em> <strong>DC City FC</strong></div>
+              <div class="dcfc-match__score"><span class="dcfc-res">W</span>0 – 4</div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ STANDINGS ============ -->
+    <section class="dcfc-section" id="league">
+      <div class="dcfc-container">
+        <h2 class="dcfc-title"><span>DCPL 2</span> standings</h2>
+        <div class="dcfc-table-wrap">
+          <table class="dcfc-table">
+            <caption class="dcfc-visually-hidden">DCPL 2 top of the table</caption>
+            <thead><tr><th>#</th><th>Club</th><th>P</th><th>GF:GA</th><th>GD</th><th>Pts</th></tr></thead>
+            <tbody>
+              <tr class="is-us"><td>1</td><td>DC City FC</td><td>5</td><td>14:4</td><td>+10</td><td>13</td></tr>
+              <tr><td>2</td><td>WGIT FC</td><td>5</td><td>20:11</td><td>+9</td><td>13</td></tr>
+              <tr><td>3</td><td>Ragtag United</td><td>5</td><td>14:7</td><td>+7</td><td>9</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="dcfc-note">Top three shown. Full table on
+          <a href="https://web.turneoapp.com/team/82e677fa-9929-43d1-abd7-fabb3e2167ad/stats" target="_blank" rel="noopener">Turneo</a>.
+          We play in the <a href="https://dcpremierleague.com/fall-2026/dcpl-2/" target="_blank" rel="noopener">DC Premier League (DCPL) – Division 2</a>, Fall 2026 season.</p>
+      </div>
+    </section>
+
+    <!-- ============ SQUAD ============ -->
+    <section class="dcfc-section dcfc-section--dark" id="squad">
+      <div class="dcfc-container">
+        <h2 class="dcfc-title"><span>The</span> squad</h2>
+        <p class="dcfc-manager">Manager: <strong>Alexios Rodriguez</strong></p>
+
+        <label class="dcfc-visually-hidden" for="dcfc-search">Search players</label>
+        <input class="dcfc-search" id="dcfc-search" type="search" placeholder="Search players…" autocomplete="off">
+
+        <ul class="dcfc-players" id="dcfc-players">
+          <li data-p><span class="dcfc-av">FA</span><div><small>Faris</small><b>Abdulghani</b></div></li>
+          <li data-p><span class="dcfc-av">BA</span><div><small>Birchard</small><b>Allen</b></div></li>
+          <li data-p><span class="dcfc-av">HC</span><div><small>Hector</small><b>Canton</b></div></li>
+          <li data-p><span class="dcfc-av">JC</span><div><small>Jamal</small><b>Coleridge</b></div></li>
+          <li data-p><span class="dcfc-av">ED</span><div><small>Edson</small><b>Demata</b></div></li>
+          <li data-p><span class="dcfc-av">SD</span><div><small>Schimon</small><b>Dieseler</b></div></li>
+          <li data-p><span class="dcfc-av">BF</span><div><small>Bladimir</small><b>Fuentes</b></div></li>
+          <li data-p><span class="dcfc-av">JG</span><div><small>John</small><b>Gansallo</b></div></li>
+          <li data-p><span class="dcfc-av">AH</span><div><small>Alan</small><b>Hernandez</b></div></li>
+          <li data-p><span class="dcfc-av">TH</span><div><small>Theodore</small><b>Hughes</b></div></li>
+          <li data-p><span class="dcfc-av">NJ</span><div><small>Nathan</small><b>Johnson</b></div></li>
+          <li data-p><span class="dcfc-av">WK</span><div><small>Wuchukwu</small><b>Kelechi</b></div></li>
+          <li data-p><span class="dcfc-av">YT</span><div><small>Yoalmo</small><b>Khan Torres</b></div></li>
+          <li data-p><span class="dcfc-av">JK</span><div><small>Jeff</small><b>Kyei</b></div></li>
+          <li data-p><span class="dcfc-av">AK</span><div><small>Aaron</small><b>Kyei-Asare</b></div></li>
+          <li data-p><span class="dcfc-av">SL</span><div><small>Sean</small><b>Limon</b></div></li>
+          <li data-p><span class="dcfc-av">WL</span><div><small>William</small><b>Lowthert</b></div></li>
+          <li data-p><span class="dcfc-av">TM</span><div><small>Tyler</small><b>Madairy</b></div></li>
+          <li data-p><span class="dcfc-av">KM</span><div><small>Kenny</small><b>Mesidor</b></div></li>
+          <li data-p><span class="dcfc-av">JM</span><div><small>Joshua</small><b>Morgan</b></div></li>
+          <li data-p><span class="dcfc-av">GM</span><div><small>Gregorio</small><b>Mount</b></div></li>
+          <li data-p><span class="dcfc-av">DO</span><div><small>David</small><b>Ogbonna</b></div></li>
+          <li data-p><span class="dcfc-av">WQ</span><div><small>William</small><b>Quansah</b></div></li>
+          <li data-p><span class="dcfc-av">AR</span><div><small>Alexios</small><b>Rodriguez</b></div></li>
+          <li data-p><span class="dcfc-av">MR</span><div><small>Manuel</small><b>Ruiz</b></div></li>
+          <li data-p><span class="dcfc-av">AS</span><div><small>Ahmed</small><b>Samura</b></div></li>
+          <li data-p><span class="dcfc-av">NZ</span><div><small>Noah</small><b>Van Zandt</b></div></li>
+          <li data-p><span class="dcfc-av">JW</span><div><small>Jonathan</small><b>Waldron</b></div></li>
+          <li data-p><span class="dcfc-av">JW</span><div><small>Justin</small><b>Waldron</b></div></li>
+        </ul>
+        <p class="dcfc-empty" id="dcfc-empty" hidden>No players match that search.</p>
+        <!-- PHOTO: team photo slot — add a <figure> here when available. -->
+      </div>
+    </section>
+
+    <!-- ============ SPONSOR ============ -->
+    <section class="dcfc-section dcfc-sponsor" id="sponsor">
+      <div class="dcfc-container">
+        <div class="dcfc-sponsor__card">
+          <span class="dcfc-badge dcfc-badge--dark">Proudly sponsored by</span>
+          <!-- LOGO: drop the Dacha logo <img> here when approved by the sponsor. -->
+          <h2>Dacha Beergarden</h2>
+          <p>Huge thanks to Dacha Beergarden for backing DC City FC this season. German, Belgian and American craft beer, seasonal Bavarian-inspired food and a dog-friendly patio in Shaw and Navy Yard — the best place to toast a win.</p>
+          <a class="dcfc-btn dcfc-btn--primary" href="https://www.dachabeergarden.com" target="_blank" rel="noopener">Visit Dacha Beergarden</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
